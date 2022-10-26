@@ -6,7 +6,7 @@ public interface IRepository<TEntity, TKey> : IDisposable where TEntity : Simple
 {
     Task Add(TEntity obj);
     Task<TEntity?> GetByIdAsync(TKey id);
-    Task<IEnumerable<TEntity>> GetAllAsync();
+    IQueryable<TEntity> GetAll();
     void Update(TEntity obj);
     void Remove(TKey id);
 }

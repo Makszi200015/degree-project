@@ -28,12 +28,9 @@ namespace TaskList.Domain.Repositories
             return Task.CompletedTask;
         }
 
-        public virtual async Task<TEntity?> GetByIdAsync(TKey id) => await DbSet.FindAsync(id);
+        public async Task<TEntity?> GetByIdAsync(TKey id) => await DbSet.FindAsync(id);
 
-        public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
-        {
-            return await DbSet.ToListAsync();
-        }
+        public IQueryable<TEntity> GetAll() => DbSet.AsQueryable();
 
         public virtual void Update(TEntity model)
         {
