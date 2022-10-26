@@ -9,8 +9,6 @@
   <ItemGroup>
     <Folder Include="BLL\Dtos\" />
     <Folder Include="BLL\Services\Abstract\" />
-    <Folder Include="DAL\UnitOfWork\" />
-    <Folder Include="DAL\Repositories\Abstract\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,8 +1,9 @@
-﻿namespace Degree.DAL.Domain
+﻿using Degree.DAL.Domain.Abstract;
+
+namespace Degree.DAL.Domain
 {
-    public class AccountInfo
+    public class AccountInfo : SimpleDomainModel<int>
     {
-        public int Id { get; set; }
         public int SocialNetwork { get; set; }
         public string Login { get; set; }
         public int AccountId { get; set; }
