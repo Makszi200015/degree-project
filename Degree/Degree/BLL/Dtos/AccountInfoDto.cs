@@ -1,13 +1,17 @@
-﻿using Degree.DAL.Domain.Abstract;
+﻿using Degree.DataTypes.Enums;
 
-namespace Degree.DAL.Domain
+namespace Degree.BLL.Dtos
 {
-    public class AccountInfo : SimpleDomainModel<int>
+    public class AccountInfoDto
     {
+        /// <summary>
+        /// Id
+        /// </summary>
+        public int Id { get; set; }
         /// <summary>
         /// SocialNetwork enum
         /// </summary>
-        public int SocialNetwork { get; set; }
+        public ESocialNetwork SocialNetwork { get; set; }
         /// <summary>
         /// SocialNetwork login
         /// </summary>
@@ -19,6 +23,6 @@ namespace Degree.DAL.Domain
         /// <summary>
         /// Navigation property for AccountId
         /// </summary>
-        public Account Account { get; set; }
+        public AccountDto Account { get; set; }
     }
 }

@@ -1,6 +1,8 @@
-﻿namespace Degree.DAL.Domain
+﻿using Degree.DAL.Domain.Abstract;
+
+namespace Degree.DAL.Domain
 {
-    public class StatisticInfo
+    public class StatisticInfo : SimpleDomainModel<int>
     {
     }
 }

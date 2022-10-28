@@ -1,9 +1,11 @@
-﻿using Degree.DAL.Domain.Abstract;
-
-namespace Degree.DAL.Domain
+﻿namespace Degree.BLL.Dtos
 {
-    public class Account : SimpleDomainModel<int>
+    public class AccountDto
     {
+        /// <summary>
+        /// Id
+        /// </summary>
+        public int Id { get; set; }
         /// <summary>
         /// UserId
         /// </summary>
@@ -11,14 +13,14 @@ namespace Degree.DAL.Domain
         /// <summary>
         /// Navigation property for User
         /// </summary>
-        public User User { get; set; }
+        public UserDto User { get; set; }
         /// <summary>
         /// SearchHistories Collection
         /// </summary>
-        public IEnumerable<SearchHistory> SearchHistories { get; set; }
+        public IEnumerable<SearchHistoryDto> SearchHistories { get; set; }
         /// <summary>
         /// AccountInfos Collection
         /// </summary>
-        public IEnumerable<AccountInfo> AccountInfos { get; set; }
+        public IEnumerable<AccountInfoDto> AccountInfos { get; set; }
     }
 }

@@ -1,9 +1,16 @@
-﻿namespace Degree.DAL.Domain
+﻿using Degree.DAL.Domain.Abstract;
+
+namespace Degree.DAL.Domain
 {
-    public class Advice
+    public class Advice : SimpleDomainModel<int>
     {
-        public int Id { get; set; }
+        /// <summary>
+        /// AdviceText
+        /// </summary>
         public string AdviceText { get; set; }
+        /// <summary>
+        /// AdviceType enum value
+        /// </summary>
         public int AdviceType { get; set; }
     }
 }

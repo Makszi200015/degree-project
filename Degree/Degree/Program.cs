@@ -1,8 +1,13 @@
+using Degree.BLL.AutoMapperProfiles;
+using Degree.BLL.Services;
+using Degree.BLL.Services.Abstract;
 using Degree.DAL.Context;
 using Degree.DAL.Domain;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using TaskList.Domain.Repositories;
+using TaskList.Domain.UnitOfWorks;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +17,10 @@ builder.Services.AddEntityFrameworkNpgsql()
             .AddDbContext<DbContext, MyDbContext>(optionsAction => optionsAction.UseNpgsql("Server=localhost;Port=5432;Database=SocialNetworkStats;Username=postgres;Password=postgres;Persist Security Info=True"));
 builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<MyDbContext>();
 builder.Services.AddMvc();
+builder.Services.AddScoped(typeof(SqlRepository<,>));
+builder.Services.AddScoped(typeof(SqlUnitOfWork<,>));
+builder.Services.AddScoped(typeof(IService<,>), typeof(Service<,>));
+builder.Services.AddAutoMapper(typeof(EntitiesAutoMapperProfile));
 
 var app = builder.Build();
 
