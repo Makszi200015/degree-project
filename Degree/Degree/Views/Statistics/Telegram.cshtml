@@ -1,0 +1,67 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="container">
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-2">Enter a name of your channel</div>
+        <div class="col-4"><input type="text" id="channelNameInput" /></div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <input type="button" id="search" value="Search" />
+        </div>
+    </div>
+    <div id="statisticsGraph">
+    </div>
+</div>
+
+<style>
+    #statisticsGraph {
+        position: relative;
+        margin-top: 100px;
+    }
+
+    #statisticsGraph::after {
+        content: '';
+        display: block;
+        background-color: #fff;
+        width: 100%;
+        height: 80px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+     img {
+        max-width: 100%;
+     }
+</style>
+
+<script>
+    document.getElementById("search").addEventListener("click", function (event) {
+        var channelName = document.getElementById("channelNameInput").value;
+        var imgDiv = document.getElementById('statisticsGraph');
+        var img = document.createElement('img');
+        img.id = 'statisticImage'
+        img.src = `//en.tgstat.com/channel/@@${channelName}/stat-widget.png`;
+
+        imgDiv.innerHTML = '';
+        imgDiv.append(img);
+    });
+
+    document.addEventListener('DOMNodeInserted', function (e) {
+        if (e.target.id == 'statisticImage') {
+            var img = e.target;
+
+            if (img.height > 0) {
+                var height = img.height * 0.9;
+                img.height = height;
+            }
+        }
+    });
+</script>
