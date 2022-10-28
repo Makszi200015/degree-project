@@ -22,6 +22,10 @@ builder.Services.AddScoped(typeof(SqlUnitOfWork<,>));
 builder.Services.AddScoped(typeof(IService<,>), typeof(Service<,>));
 builder.Services.AddAutoMapper(typeof(EntitiesAutoMapperProfile));
 
+builder.Services.AddScoped<IAccountInfoService, AccountInfoService>();
+builder.Services.AddScoped<IAdviceService, AdviceService>();
+builder.Services.AddScoped<ISearchHistoryService, SearchHistoryService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
